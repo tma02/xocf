@@ -29,7 +29,7 @@
         <p>You are {{ - (usage.data.dumLimit - usage.data.dumUsage) }} GB over the data limit this period!</p>
         <hr>
         <p class="mb-0">
-          Cox will continue to provide you with additional 50 GB blocks of data for $10 each, as needed. Being {{ - (usage.data.dumLimit - usage.data.dumUsage) }} GB over the limit will cost ${{ Math.ceil(- (usage.data.dumLimit - usage.data.dumUsage) / 50) * 10 }}.
+          Cox will continue to provide you with supplemental 50 GB blocks of data for $10 each, as needed. Being {{ - (usage.data.dumLimit - usage.data.dumUsage) }} GB over your limit will cost an <b>additional ${{ Math.ceil(- (usage.data.dumLimit - usage.data.dumUsage) / 50) * 10 }}</b> to your plan.
         </p>
       </div>
       <div v-for="progressbar in usage.progressbars">

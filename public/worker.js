@@ -44,7 +44,7 @@ function updateProgressbars(usage) {
   var trueUsage = Number(usage.data.dumUsage)
 
   usage.progressbars[0] = {
-    name: 'DATA INCLUDED WITH YOUR PLAN',
+    name: 'INCLUDED WITH YOUR PLAN',
     limit: includedLimit,
     limitStr: `${includedLimit} GB`,
     usage: includedUsage,
@@ -63,7 +63,7 @@ function updateProgressbars(usage) {
     var blockUsage = trueUsage - includedLimit - (i * blockLimit) > 50 ? 50 : trueUsage - includedLimit - (i * blockLimit)
 
     usage.progressbars[i + 1] = {
-      name: `ADDITIONAL BLOCK ${i + 1}`,
+      name: `SUPPLEMENTAL BLOCK ${i + 1}`,
       limit: blockLimit,
       limitStr: `${blockLimit} GB`,
       usage: blockUsage,
