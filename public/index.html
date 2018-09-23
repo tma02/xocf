@@ -19,7 +19,7 @@
   </style>
 </head>
 <body>
-  <div id="app" :class="{ container: true, invisible: !loaded }" style="max-width: 620px;">
+  <div id="app" :class="{ container: true, invisible: !loaded }" style="max-width: 500px;">
     <div style="text-align: center;">
       <h1>&#x1F3E1;xocF</h1>
       <p>
@@ -27,7 +27,7 @@
         <code class="text-muted">{{ usage.data.address }}</code>
       </p>
     </div>
-    <div style="width: 500px; margin-left: calc(50% - 250px);">
+    <div>
       <div class="alert alert-warning" role="alert" v-if="usage.data.dumLimit - usage.data.dumUsage < 100 && usage.data.dumLimit - usage.data.dumUsage >= 0">
         Uh oh! You have less than {{ usage.data.dumLimit - usage.data.dumUsage }} GB of data available this billing period!
       </div>
