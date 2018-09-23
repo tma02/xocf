@@ -12,7 +12,7 @@
     }
     body {
       padding: 0;
-      background-color: #0e0e0e;
+      background-color: #151515;
       color: white;
     }
   </style>
@@ -38,7 +38,7 @@
           Cox will continue to provide you with supplemental 50 GB blocks of data for $10 each, as needed. Being {{ - (usage.data.dumLimit - usage.data.dumUsage) }} GB over your limit will cost an <b>additional ${{ Math.ceil(- (usage.data.dumLimit - usage.data.dumUsage) / 50) * 10 }}</b> to your plan.
         </p>
       </div>
-      <p>Given your current data usage you have an average of <b>{{ (usage.data.dumLimit - usage.data.dumUsage < 0 ? 0 : usage.data.dumLimit - usage.data.dumUsage) / usage.data.dumDaysLeft }} GB per day</b> available for the rest of this period.</p>
+      <p>Given your current data usage you have an average of <b>{{ (usage.data.dumLimit - usage.data.dumUsage < 0 ? 0 : usage.data.dumLimit - usage.data.dumUsage) / usage.data.dumDaysLeft }} GB per day</b> available for the rest of this period ({{ usage.data.dumDaysLeft }} day{{ usage.data.dumDaysLeft > 1 ? 's' : '' }}).</p>
       <div v-for="progressbar in usage.progressbars">
         <small class="text-muted">{{ progressbar.name }}</small>
         <div class="progress" :style="progressbar.style">
@@ -48,6 +48,7 @@
       </div>
     </div>
     <div style="text-align: center; margin-top: 24px; padding-bottom: 48px;">
+      <small class="text-muted"><a href="/usage.json" target="_blank">View raw data</a></small><br/>
       <small class="text-muted">Made with &#x2615; at Bluemont</small>
     </div>
   </div>
