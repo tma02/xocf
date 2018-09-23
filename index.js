@@ -12,10 +12,12 @@ app.use(express.static('public'))
 app.get('/usage.json', appGetUsage)
 
 app.listen(3000)
+console.log('Started HTTP server')
 
 let usage = {}
 
 function getCoxCookies(config, cb) {
+  console.log('Logging into Cox...')
   let form = {
     onsuccess: 'https%3A%2F%2Fwww.cox.com%2Finternet%2Fmydatausage.cox',
     onfailure: 'https://webcdn.cox.com/content/dam/cox/residential/login.html?onsuccess=https%3A%2F%2Fwww.cox.com%2Finternet%2Fmydatausage.cox&',

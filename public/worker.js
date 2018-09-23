@@ -31,6 +31,7 @@ function updateUsage(cb) {
     }
     usage.data = JSON.parse(xhr.responseText)
     usage.blocksUsed = Math.ceil(-(usage.data.dumLimit - usage.data.dumUsage) / 50)
+    usage.limitWithBlocks = Number(usage.data.dumLimit) + (usage.blocksUsed * 50)
     cb(usage)
   }
 
