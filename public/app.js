@@ -4,7 +4,8 @@ var app = new Vue({
     usage: {
       data: {},
       progressbars: []
-    }
+    },
+    loaded: false
   }
 })
 
@@ -22,6 +23,7 @@ function centerApp() {
 worker.onmessage = (e) => {
   app.usage = e.data.data
   document.title = e.data.data.title
+  app.loaded = true
 
   app.$nextTick(centerApp)
 }

@@ -69,7 +69,7 @@ function updateProgressbars(usage) {
       usage: blockUsage,
       usageStr: `${blockUsage} GB`,
       style: 'height: 32px; text-align: center; background-color: #777777;',
-      innerStyle: `width: ${Math.floor((blockUsage / blockLimit) * 100)}%;`,
+      innerStyle: `width: ${Math.floor((blockUsage / blockLimit) * 100)}%; animation-direction: reverse;`,
       labelStyle: 'position: absolute; left: 0; right: 0; line-height: 32px; color: white;',
       active: usage.blocksUsed == i + 1
     }
