@@ -36,6 +36,7 @@ function getCoxCookies(config, cb) {
 }
 
 function getCoxUsage(cookies) {
+  console.log('Updating utag data from Cox...')
   let options = {
     url: 'https://www.cox.com/internet/mydatausage.cox',
     headers: {
@@ -52,6 +53,7 @@ function getCoxUsage(cookies) {
   request.get(options, (err, res, body) => {
     let utagRegex = /var utag_data={.*[\s\S]+?}/g
     usage = JSON.parse(utagRegex.exec(body)[0].substr(14))
+    console.log('Got new utag data')
   })
 }
 
@@ -62,6 +64,5 @@ function appGetUsage(req, res) {
 getCoxCookies(config, getCoxUsage)
 
 setInterval(() => {
-  console.log('updating utag data')
   getCoxCookies(config, getCoxUsage)
 }, 60 * 60 * 1000)
